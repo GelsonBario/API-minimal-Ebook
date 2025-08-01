@@ -1,84 +1,86 @@
-# API-minimal-Ebook
-API de livros
+Books API 📚
 
-Uma API simples para gerenciar livros, construída com Node.js, Fastify e TypeScript, com a ajuda do professor Felipão Aguiar.
+Uma API RESTful simples para gerenciar livros, construída com Node.js, Fastify e TypeScript. Este projeto utiliza um banco de dados em memória para simplicidade e demonstração.
 
-Descrição
+✨ Funcionalidades
 
-Este projeto é uma API RESTful que permite a criação, leitura, atualização e exclusão de livros. Utilize um banco de dados em memória para armazenar os livros e forneça endpoints para interagir com esses dados.
+CRUD Completo: Crie, Leia, Atualize e Delete livros.
 
-Tecnologias Utilizadas
+Validação de Dados: Utiliza schemas do Fastify para validar os dados de entrada nas rotas.
 
-Node.js : Ambiente de execução para JavaScript no lado do servidor.
+Banco de Dados em Memória: Nenhuma configuração de banco de dados externo é necessária.
 
-Fastify : Framework web altamente eficiente para construir APIs.
+Desenvolvimento Moderno: Configurado com TypeScript e tsx para uma experiência de desenvolvimento rápida com hot-reload.
 
-TypeScript : Superset de JavaScript que adiciona tipagem estática.
+🛠️ Tecnologias Utilizadas
 
-Tsup : Ferramenta de empacotamento para compilação TypeScript.
+Node.js: Ambiente de execução JavaScript.
 
-@fastify/cors : Plugin para gerenciar Cross-Origin Resource Sharing (CORS).
+Fastify: Framework web de alta performance.
 
-Estrutura do Projeto
-src/ : Diretório onde o código-fonte da aplicação está localizado.
+TypeScript: Superset de JavaScript com tipagem estática.
 
-lib/database.ts : Implementação do banco de dados em memória.
+tsx: Executor de TypeScript para Node.js focado em performance.
 
-Routes.ts : Definição das rotas da API.
+tsup: Ferramenta para empacotar (bundle) código TypeScript.
 
-server.ts : Ponto de entrada da aplicação, onde o servidor Fastify é configurado e iniciado.
+@fastify/cors: Plugin para habilitar CORS.
 
-package.json : Gerenciador de dependências e scripts do projeto.
+🚀 Começando
 
-package-lock.json : Bloqueio de versão das dependências.
+Siga os passos abaixo para ter o projeto rodando em sua máquina local.
 
-tsconfig.json : Configurações do compilador TypeScript.
+Pré-requisitos
 
-.env.txt : Variáveis de ambiente para configuração do servidor.
+Node.js (versão 18 ou superior)
 
-.gitignore.txt : Arquivo que especifica quais arquivos e pastas devem ser ignorados pelo Git.
+npm (geralmente vem com o Node.js)
 
-Instalação
+Instalação e Execução
 
-Clone ou repositório:
+Clone o repositório:
 
-festança
+Bash
 
-Copiar
-git clone <url-do-repositorio>
+git clone https://github.com/SEU-USUARIO/books-api.git
 cd books-api
-Instalar as dependências:
 
-festança
+Instale as dependências:
 
-Copiar
+Bash
+
 npm install
-Renomeie o arquivo .env.txtpara .envcarregar as variáveis de ambiente:
 
-festança
+Inicie o servidor em modo de desenvolvimento:
 
-Copiar
-mv .env.txt .env
+Bash
 
-Roteiros
+npm run start:dev
 
-npm run dist : Compila o código TypeScript para JavaScript no diretório dist.
+O servidor será iniciado em http://localhost:3333 e será reiniciado automaticamente a cada alteração nos arquivos.
 
-npm run start:dev : Inicia o servidor em modo de desenvolvimento, exibindo alterações nos arquivos.
+📜 Scripts Disponíveis
 
-npm run start:watch : Inicia o servidor em modo de observação.
+npm run start:dev: Inicia o servidor em modo de desenvolvimento com hot-reload.
 
-npm run start : Inicia o servidor a partir dos arquivos compilados.
+npm run dist: Compila o código TypeScript para JavaScript (gera a pasta dist).
 
-npm run build-and-start : Compila o projeto e inicia o servidor.
+npm start: Inicia o servidor em modo de produção (requer a execução prévia do script dist).
 
-Pontos finais
-GET /books : Lista todos os livros.
+npm run build-and-start: Executa o build e inicia o servidor em produção.
 
-GET /books/:id : Obtém um livro específico pelo ID.
+🛣️ Endpoints da API
 
-POST /books : Cria um novo livro.
+A API fornece os seguintes endpoints para gerenciar os livros:
 
-PUT /books/:id : Atualiza um livro existente pelo ID.
+Método	Rota	Descrição	Corpo da Requisição (Exemplo)
 
-DELETE /books/:id : Exclui um livro pelo ID.
+GET	/books	Retorna uma lista de todos os livros.	N/A
+
+GET	/books/:id	Retorna um livro específico pelo seu UUID.	N/A
+
+POST	/books	Cria um novo livro.	{ "title": "...", "author": "...", "year": 2024 }
+
+PUT	/books/:id	Atualiza um livro existente.	{ "title": "...", "author": "...", "year": 2025 }
+
+DELETE	/books/:id	Deleta um livro pelo seu UUID.	N/A
